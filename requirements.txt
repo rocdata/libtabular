@@ -1,0 +1,13 @@
+
+petl==1.7.1
+
+# BACKEND FORMATS
+
+
+# BACKEND APIs
+
+
+# DEV
+jupyter==1.0.0
+jedi==0.17.2
+
