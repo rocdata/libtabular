@@ -16,10 +16,10 @@ static site generators.
 
 ## Example
 
-    TODO
+![Minimal sample data format](./samples/minimal.ods.png)
 
 
-Using `libtabular` you would easily "extract" the data and metadata from this source
+Using `libtabular`, you could "extract" the data and metadata from this source
 file using a few commands:
 
 ```python
@@ -41,19 +41,36 @@ LIST
 
 Recent work on a repository of curriculum documents, see [rocdata.global](https://rocdata.global),
 requires an easy-to-use process for import and export of curriculum data like:
- - Curriculum standards documents (excel sheets that specify what students should be learning)
- - Content collections data (excel sheets that consists of links to useful learning resources)
- - Content correlations data (excel sheets that contain "links" between curriculum standards
-   and relevant learning resources)
+
+- Curriculum standards documents (excel sheets that specify what students should be learning)
+- Content collections data (excel sheets that consists of links to useful learning resources)
+- Content correlations data (excel sheets that contain "links" between curriculum standards
+  and relevant learning resources)
 
 The spreadsheet/CSV format is a natural choice for teachers and administrators,
 who have experience working with this file type, so it is worth developing tools
 that facilitate reading and writing tabular data:
 
- - Curriculum bodies and ministries of education can publish curriculum standards
-   documents information in machine-readable formats (instead of publishing PDFs, publish spreadsheets).
- - Teachers can download standards data in easy-to-use spreadsheet formats
-   (use standards for your grade level to plan your lessons).
- - Curriculum experts and teachers can download blank templates with appropriate
-   headers to fill in when need to specify standards documents or content correlations.
+- Curriculum bodies and ministries of education can publish curriculum standards
+  documents information in machine-readable formats (instead of publishing PDFs, publish spreadsheets).
+- Teachers can download standards data in easy-to-use spreadsheet formats
+  (use standards for your grade level to plan your lessons).
+- Curriculum experts and teachers can download blank templates with appropriate
+  headers to fill in when need to specify standards documents or content correlations.
 
+
+
+Related projects
+----------------
+
+- [`csv`](https://github.com/python/cpython/blob/master/Lib/csv.py) in stdlib
+- [`pandas.read_csv`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
+  which is a few more bells and whistles.
+- [`petl`](https://petl.readthedocs.io) has a lot of functionality for loading
+  CSV, TSV, Excel, and a bunch of other format. The `petl` library also supports
+  convenient [transformation of columns](https://petl.readthedocs.io/en/stable/transform.html#converting-values).
+  There is even a [PR](https://github.com/petl-developers/petl/pull/405/files)
+  for integration with google sheets (not merged).
+- [`pyexcel`](https://github.com/pyexcel/pyexcel) is a general-purpose backend
+  for all kinds of spreadsheet formats (csv, xlsx, ods, etc.)
+- For other spreadsheet Python libs, see [http://www.python-excel.org/](http://www.python-excel.org/)
