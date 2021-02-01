@@ -1,24 +1,16 @@
 
-
-def parse_metadata_header(table, sample_size=30):
+def parse_metadata_header(table):
     """
-    Given a PETL table-like object opened from any source with header=None,
-    parse a sample of the rows to identify:
-     - `num_metadata_rows` (int): number of rows containing key-value pairs
-     - `metadatata`: contents of header rows as a `dict` where the metadata rows
-       are interpreted as: key = first_column.rstrip(":") (str), value = second_column (str).
-     - `header` list(str): the contents of the "column headers" row, which separates
-       metadata header rows from data rows.
-
-    This information is sufficient for subsequent processing of this data file:
-     - use `header` as the column names (possibly post-processed/renamed).
-     - when reading data from file, skip the first `num_metadata_rows+1`
-       before starting to return data.
+    Given a PETL table-like object (an iterable of iterables) opened from any
+    source with header=None, parse the rows to identify:
+     - `metadatata` (dict): contents of header rows where each metadata row is
+       interpreted as: key = first_column.rstrip(":"), value = second_column.
+     - `header` list(str): the contents of the "column headers" row, which
+       separates metadata rows from data rows.
+     - `data` list(list(str)): the rest of the rows after the header
     """
-    sample = table[0:sample_size]
-    rows = list(sample)
-
-    assert rows, 'unexpected empty table given'
+    rows = list(table)
+    assert rows, "unexpected empty table given"
 
     data_width = len(rows[0])
     for row in rows:
@@ -36,24 +28,22 @@ def parse_metadata_header(table, sample_size=30):
         if not succinct_row:
             succinct_row = row
         succinct_rows.append(succinct_row)
-        print()
 
-    assert len(succinct_rows[-1]) == data_width, 'Insufficient sample of rows taken'
+    assert len(succinct_rows[-1]) == data_width, "Unexpected width of last row"
 
-    # go through rows to parse metadata and find header row
-    num_metadata_rows = None
+    # go through `rows` to parse metadata, header, and data rows:
     metadata = {}
     header = None
-    for i, succinct_row in enumerate(succinct_rows):
+    data = []
+    for succinct_row in succinct_rows:
         if len(succinct_row) < data_width:
             key = succinct_row[0].strip(':')
             value = succinct_row[1].strip()
             metadata[key] = value
         else:
-            # found the header!
-            num_metadata_rows = i
-            header = succinct_row
-            break
+            if header is None:
+                header = succinct_row  # found the header!
+            else:
+                data.append(succinct_row)
 
-    return (num_metadata_rows, metadata, header)
-
+    return (metadata, header, data)

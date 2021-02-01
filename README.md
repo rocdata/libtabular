@@ -23,19 +23,40 @@ Using `libtabular`, you could "extract" the data and metadata from this source
 file using a few commands:
 
 ```python
-from libtabular import loadpath
+>>> from libtabular import fromcsvwithheader
 
-dataset = loadpath('samples/minimal.csv')
-dataset.get_metadata()
-DICT
+>>> table = fromcsvwithheader('samples/minimal.csv')
 
-dataset.get_data()
-ROWS OF DICTS
+>>> table.metadata
+{'key1': 'value1',
+ 'key2': 'value2',
+ 'title': 'Minimal sample document',
+ 'description': 'This is a sample document that consists of four sections',
+ 'doc_id': 'Sample-doc-001',
+ 'comment': 'This is not part of document metadata; just a comment...'}
 
-dataset.get_keys()
-LIST
+>>> list(table.dicts())
+[{'section_id': '002',
+  'slug': 'dataformat',
+  'title': 'CSV files with metadata',
+  'description': 'Description of the CSV-with-metadata-header data format',
+  'url': 'https://github.com/rocdata/libtabular/blob/main/docs/dataformat.md'},
+ {'section_id': '003',
+  'slug': 'tutorial',
+  'title': 'Tutorial',
+  'description': 'Hands-on examples of using libtabular',
+  'url': 'https://github.com/rocdata/libtabular/blob/main/docs/tutorial.md'},
+ {'section_id': '004',
+  'slug': 'backends',
+  'title': 'Backends',
+  'description': 'Description of integrations to various spreadsheets formats and APIs  ',
+  'url': 'https://github.com/rocdata/libtabular/blob/main/docs/backends.md'}]
 
+
+>>> table.header
+('section_id', 'slug', 'title', 'description', 'url')
 ```
+
 
 ## Why is this needed?
 
