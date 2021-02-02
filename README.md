@@ -95,3 +95,24 @@ Related projects
 - [`pyexcel`](https://github.com/pyexcel/pyexcel) is a general-purpose backend
   for all kinds of spreadsheet formats (csv, xlsx, ods, etc.)
 - For other spreadsheet Python libs, see [http://www.python-excel.org/](http://www.python-excel.org/)
+
+
+
+TODOs
+-----
+
+- Add setup.py and release on PyPI
+- Add `fromxlsxwithheader` for parsing Excel files
+- Add `fromodswithheader` based on `pyexcel`
+- Add minimal tests to check all source formats result in same data
+- Add `prependheader(metadata, header, data)` function to export in this format,
+  ideally generic workflow that works for any output format (csv,ods,xlsx).
+
+
+
+Roadmap
+-------
+
+- Add tree-parsing logic utils? (libtree ;)
+- Includes statements (include another .CSV file as a node in current location)
+- Optional enhancements for templates: add formatting of header etc. (only for Excel and ODS)
