@@ -15,7 +15,7 @@ readme = open('README.md').read()
 
 setup(
     name='libtabular',
-    version='0.0.1',
+    version='0.0.2',
     license='MIT',
     description='Utility functions for reading and writing CSV files with metadata headers.',
     long_description=readme,

@@ -16,7 +16,7 @@ static site generators.
 
 ## Example
 
-![Minimal sample data format](./samples/minimal.ods.png)
+![Minimal sample data format](https://raw.githubusercontent.com/rocdata/libtabular/main/samples/minimal.ods.png)
 
 
 Using `libtabular`, you could "extract" the data and metadata from this source
