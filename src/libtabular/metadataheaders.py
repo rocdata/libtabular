@@ -37,7 +37,7 @@ def parse_metadata_header(table):
     data = []
     for succinct_row in succinct_rows:
         if len(succinct_row) < data_width:
-            key = succinct_row[0].strip(':')
+            key = succinct_row[0].lstrip('# ').strip(':')
             value = succinct_row[1].strip()
             metadata[key] = value
         else:
