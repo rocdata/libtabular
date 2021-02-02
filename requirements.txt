@@ -10,4 +10,5 @@ petl==1.7.1
 # DEV
 jupyter==1.0.0
 jedi==0.17.2
+pytest==6.2.2
 

@@ -100,8 +100,6 @@ Related projects
 
 TODOs
 -----
-
-- Add setup.py and release on PyPI
 - Add `fromxlsxwithheader` for parsing Excel files
 - Add `fromodswithheader` based on `pyexcel`
 - Add minimal tests to check all source formats result in same data
@@ -109,10 +107,15 @@ TODOs
   ideally generic workflow that works for any output format (csv,ods,xlsx).
 
 
-
 Roadmap
 -------
-
 - Add tree-parsing logic utils? (libtree ;)
 - Includes statements (include another .CSV file as a node in current location)
 - Optional enhancements for templates: add formatting of header etc. (only for Excel and ODS)
+
+
+Ideas
+-----
+- Investigate [CSVW standard and libraries](https://www.one-tab.com/page/q1HbgtswQpeSstzgihTh_w),
+  specifically options for validation.
+- Investigate `tablib` as an alternative base to `petl` (although seems less versatile).
