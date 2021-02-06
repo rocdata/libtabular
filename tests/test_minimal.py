@@ -12,9 +12,9 @@ def test_minimal_csv():
 
     # check data
     data_dicts = list(table.dicts())
-    assert len(data_dicts) == 3
+    assert len(data_dicts) == 4
 
-    # spot check first row:
+    # spot check second row:
     expected = {
         'section_id': '002',
         'slug': 'dataformat',
@@ -22,5 +22,5 @@ def test_minimal_csv():
         'description': 'Description of the CSV-with-metadata-header data format',
         'url': 'https://github.com/rocdata/libtabular/blob/main/docs/dataformat.md'
     }
-    assert data_dicts[0] == expected
+    assert data_dicts[1] == expected
 
