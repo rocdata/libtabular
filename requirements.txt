@@ -1,5 +1,8 @@
 
 petl==1.7.1
+xlwt==1.3.0
+xlrd==2.0.1
+
 
 # BACKEND FORMATS
 
