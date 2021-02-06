@@ -98,17 +98,10 @@ Related projects
 
 
 
-TODOs
------
-- Add `fromxlsxwithheader` for parsing Excel files
-- Add `fromodswithheader` based on `pyexcel`
-- Add minimal tests to check all source formats result in same data
-- Add `prependheader(metadata, header, data)` function to export in this format,
-  ideally generic workflow that works for any output format (csv,ods,xlsx).
-
 
 Roadmap
 -------
+- Add `fromodswithheader` based on `pyexcel`
 - Add tree-parsing logic utils? (libtree ;)
 - Includes statements (include another .CSV file as a node in current location)
 - Optional enhancements for templates: add formatting of header etc. (only for Excel and ODS)
