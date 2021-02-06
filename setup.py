@@ -3,8 +3,6 @@
 
 from glob import glob
 from os.path import basename
-from os.path import dirname
-from os.path import join
 from os.path import splitext
 
 from setuptools import find_packages
@@ -13,9 +11,15 @@ from setuptools import setup
 
 readme = open('README.md').read()
 
+requirements = [
+    "petl==1.7.1",
+    "xlwt==1.3.0",
+    "xlrd==2.0.1",
+]
+
 setup(
     name='libtabular',
-    version='0.0.2',
+    version='0.0.3',
     license='MIT',
     description='Utility functions for reading and writing CSV files with metadata headers.',
     long_description=readme,
@@ -55,12 +59,8 @@ setup(
         "spreadhseets",
         "metadata",
     ],
-    python_requires='!=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*',
-    install_requires=[
-        'petl==1.7.1',
-        # TODO read requirements.txt
-        # eg: 'aspectlib==1.1.1', 'six>=1.7',
-    ],
+    python_requires='>=3.6',
+    install_requires=requirements,
     extras_require={
         # eg:
         #   'rst': ['docutils>=0.11'],
